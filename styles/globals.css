@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --sf-orange: #f97316;
+  --sf-dark: #09090b;
+  --sf-card: #18181b;
+  --sf-border: #27272a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--sf-dark);
+  color: #e4e4e7;
+  font-family: "DM Sans", "Helvetica Neue", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.fade-in {
+  animation: fadeSlideIn 0.4s ease-out forwards;
+}
+
+.shimmer-text {
+  background: linear-gradient(90deg, #71717a 25%, #a1a1aa 50%, #71717a 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 2px;
+}
+
+.agent-card {
+  border: 1px solid var(--sf-border);
+  background: linear-gradient(135deg, #18181b 0%, #0f0f12 100%);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 8px;
+  transition: all 0.3s ease;
+}
+
+.agent-card.completed {
+  border-color: rgba(34, 197, 94, 0.13);
+  background: linear-gradient(135deg, #0d1f14 0%, #0f0f12 100%);
+}
+
+/* Markdown-like styling for agent responses */
+.agent-response h1,
+.agent-response h2,
+.agent-response h3 {
+  color: #fafafa;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+.agent-response h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+.agent-response h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.agent-response h3 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+.agent-response p {
+  line-height: 1.7;
+  margin-bottom: 0.75em;
+}
+.agent-response ul,
+.agent-response ol {
+  padding-left: 1.5em;
+  margin-bottom: 0.75em;
+}
+.agent-response li {
+  margin-bottom: 0.4em;
+  line-height: 1.6;
+}
+.agent-response strong {
+  color: #fafafa;
+  font-weight: 600;
+}
+.agent-response code {
+  background: #27272a;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.85em;
+}
+.agent-response a {
+  color: #f97316;
+  text-decoration: underline;
+}
